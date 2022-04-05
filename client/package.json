@@ -33,7 +33,13 @@
     ]
   },
   "jest": {
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "collectCoverageFrom": [
+      "**/*.jsx",
+      "**/*.js",
+      "!dist/**",
+      "!coverage/**"
+    ]
   },
   "dependencies": {
     "@parcel/transformer-react-refresh-wrap": "^2.4.0",
