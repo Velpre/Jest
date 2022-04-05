@@ -11,7 +11,7 @@ export function MoviesApi(mongoDatabase) {
                     $in:["Ukraine"]
                 },
                 year:{
-                    $gte: 2015,
+                    $gte: 2000,
                 },
             }).sort({
                 metacritic:-1 //Sorterer oppover eller nedover med 1 eller -1
