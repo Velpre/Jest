@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 
 const mongoClient = new MongoClient(process.env.MONGODB_URL);
 
+
 beforeAll(async () => {
     await mongoClient.connect(); //Connecter på clienten
     const database = mongoClient.db("test_database"); //Angir hvilken DB skal den jobbe med
