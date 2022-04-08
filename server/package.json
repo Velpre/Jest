@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "jest mocha server/**/*.test.js --timeout 10000",
+    "test": "jest",
     "dev": "nodemon server.js",
     "build": "npm install",
     "start": "node server.js"

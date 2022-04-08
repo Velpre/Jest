@@ -12,9 +12,11 @@ app.use(bodyParser.json());
 
 const mongoClient = new MongoClient(process.env.MONGODB_URL);
 
+beforeEach(function () {
+    jest.setTimeout(50000) // ms
+});
 
 beforeAll(async () => {
-    jest.setTimeout(70000);
     await mongoClient.connect(); //Connecter på clienten
     const database = mongoClient.db("test_database"); //Angir hvilken DB skal den jobbe med
     await database.collection("movies").deleteMany({}); //Sletter alle movies fra test database
