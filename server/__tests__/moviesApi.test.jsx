@@ -12,9 +12,6 @@ app.use(bodyParser.json());
 
 const mongoClient = new MongoClient(process.env.MONGODB_URL);
 
-beforeEach(function () {
-    jest.setTimeout(50000) // ms
-});
 
 beforeAll(async () => {
     await mongoClient.connect(); //Connecter på clienten
