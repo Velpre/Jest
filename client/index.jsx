@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
-import {fetchJSON} from "./http.js";
 import {ListMovies} from "./listMovies";
 import {AddMovie} from "./addMovie";
 
@@ -22,17 +21,13 @@ function FrontPage() {
 }
 
 function Application() {
-
-    async function listMovies() {
-        return await fetchJSON("/api/movies");
-    }
     return (
         <BrowserRouter>
             <Routes>
                 <Route path={"/"} element={<FrontPage />} />
                 <Route
                     path={"/movies"}
-                    element={<ListMovies listMovies={listMovies} />}
+                    element={<ListMovies/>}
                 />
                 <Route path={"/movies/new"} element={<AddMovie />} />
             </Routes>

@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {fetchJSON} from "./http";
+import {MovieApiContext} from "./movieApiContext";
 
 function FormInput({ label, value, onChangeValue }) {
     return (
@@ -15,21 +16,19 @@ function FormInput({ label, value, onChangeValue }) {
 
 
 
-export function AddMovie({createMovie}) {
+export function AddMovie() {
+    const { createMovie } = useContext(MovieApiContext);
     const [title, setTitle] = useState("");
     const [plot, setPlot] = useState("");
     const [year1, setYear] = useState("");
     const [country, setCountry] = useState("");
     const navigate = useNavigate();
 
-    async function handleSubmit(e) {
+     function handleSubmit(e) {
         e.preventDefault();
         //Function vi sender fra testen -Mock function
-        createMovie({title})
-        await fetchJSON("/api/movies/new", {
-            method: "post",
-            json: {title, year1, plot, country},
-        });
+        createMovie({title, year1, plot, country})
+
         setTitle("");
         setYear("");
         setPlot("");
