@@ -22,8 +22,8 @@ export function ListMovies() {
         <div>
             <h1>Movies in the database</h1>
 
-            {data.map((movie) => (
-                <MovieCard key={movie.title} movie={movie}/>
+            {data.map((movie, index) => (
+                <MovieCard key={index} movie={movie}/>
             ))}
         </div>
     );

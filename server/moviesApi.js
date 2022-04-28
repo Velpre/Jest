@@ -19,7 +19,7 @@ export function MoviesApi(mongoDatabase) {
             .map(({title, year, fullplot, countries,  directors, poster, imdb})=>{  //velger hva slags info skal retuneres fra db - bruker det hos clienten
                 return {title, year, fullplot, directors, poster, countries, imdb}
             })
-            .limit(10) //limit på antall
+            .limit(100) //limit på antall
             .toArray();
 
         res.json(movies);
@@ -27,6 +27,7 @@ export function MoviesApi(mongoDatabase) {
 
     router.post("/new", (req, res) => {
             const { title, plot, year1, country } = req.body;
+            console.log(title, plot, year1, country)
             const year = parseInt(year1)
             const countries = [country]
             mongoDatabase.collection("movies").insertOne({ title, plot, year, countries});

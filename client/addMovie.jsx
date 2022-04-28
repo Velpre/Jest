@@ -1,6 +1,5 @@
 import React, {useContext, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {fetchJSON} from "./http";
 import {MovieApiContext} from "./movieApiContext";
 
 function FormInput({ label, value, onChangeValue }) {
@@ -39,7 +38,8 @@ export function AddMovie() {
     return (
         <form onSubmit={handleSubmit}>
             <h1>Add Movie</h1>
-            <FormInput label={"Title:"} value={title} onChangeValue={setTitle} />            <FormInput label={"Year:"} value={year1} onChangeValue={setYear} />
+            <FormInput label={"Title:"} value={title} onChangeValue={setTitle} />
+            <FormInput label={"Year:"} value={year1} onChangeValue={setYear} />
             <FormInput label={"Plot:"} value={plot} onChangeValue={setPlot} />
             <FormInput label={"Country:"} value={country} onChangeValue={setCountry} />
             <button>Submit</button>
